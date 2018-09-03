@@ -5,6 +5,7 @@ export default class HelloWorld extends Component {
   render () {
     return (
       <React.Fragment>
+        <button type="button" class="btn btn-default">button</button>
         Greeting: {this.props.greeting}
       </React.Fragment>
     );
