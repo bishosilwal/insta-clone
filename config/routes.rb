@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  get '/:name', to: 'home#index'
   root 'home#index'
+
 end
