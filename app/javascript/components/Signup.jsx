@@ -36,9 +36,8 @@ export default class Signup extends Component{
 
   render(){
     const { redirect } = this.state
-    console.log(redirect)
     if(redirect){
-      return(<Redirect to="/home" />)  
+      return(<Redirect to="/" />)  
     }
     return(
       <div className="container-fluid">
