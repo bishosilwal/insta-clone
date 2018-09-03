@@ -32,6 +32,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+#cross-origin request filter  
+gem 'rack-cors', :require => 'rack/cors'
 gem 'devise_token_auth'
 gem 'devise'
 gem 'webpacker'
