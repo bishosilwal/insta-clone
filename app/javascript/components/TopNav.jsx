@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import checkAuth from '../lib/Auth.js'
+import Logout from './Logout.jsx'
 
 export default class TopNav extends Component{
 
@@ -27,6 +29,9 @@ export default class TopNav extends Component{
 
               </li>
             </ul>
+            <div className="my-2">
+              {checkAuth.isAuthenticated()? <Logout />:''}
+            </div>
           </div>  
         </div>
       </nav>
