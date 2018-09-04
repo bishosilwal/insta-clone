@@ -2,7 +2,7 @@ class Api::V1::PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = current_user.posts.all
+    @posts = current_user.posts.eager_load(:attachments)
     render json: @posts
   end
 
