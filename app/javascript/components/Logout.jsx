@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
+import axios from 'axios'
 
 export default class Logout extends Component{
   state={
@@ -7,8 +8,17 @@ export default class Logout extends Component{
   }
 
   handleLogout= (e) =>{
-    window.localStorage.clear()
-    this.setState({login: false})
+    let headers = JSON.parse(window.localStorage.getItem('headers'))
+    var self = this
+    axios.delete("http://localhost:3000/api/v1/auth/sign_out",
+      { headers:headers
+      }).then(function (response){
+        console.log('signout response ok')
+        window.localStorage.clear()
+        self.setState({login: false})
+      }).catch(function (errors){
+        console.log(errors)
+      });
   }
 
   render(){

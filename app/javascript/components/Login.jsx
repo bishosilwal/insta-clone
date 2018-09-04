@@ -25,9 +25,9 @@ export default class Login extends Component{
       window.localStorage.setItem('headers', JSON.stringify(response.headers))
       self.setState({login: true})
     })
-    .then(function (errors){
-      console.log(errors)
-    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   render(){
