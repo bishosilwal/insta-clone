@@ -22,21 +22,26 @@ export default class PostForm extends Component{
   handleSubmit = (e) =>{
     e.preventDefault()
     let state = this.state
-    HEADERS['Content-Type'] = 'multipart/form-data'
+    // HEADERS['content-type'] = 'multipart/form-data'
+    console.log(HEADERS)
     let formData = new FormData()
     formData.append('status', state.status)
     for(var file in state.attachment){
       formData.append('attachment[]', state.attachment[file])
     }
+    var self = this
     axios({
       method: 'post',
       url: HOST+'posts',
       data: formData,
       headers: {
         ...HEADERS
-      }
+      },
+      contentType: "multipart/form-data"
     }).then(function (response){
       console.log(response)
+      self.props.fetchData()
+
     })
     .catch(function (errors){
        console.log(errors) 
@@ -55,7 +60,7 @@ export default class PostForm extends Component{
           <input type="file" className="form-control-file" id="exampleFormControlFile1" multiple onChange={this.handleFileInput}/>
         </div>
         <div className="form-group">
-          <button type="submit" class="btn btn-default">post</button>
+          <button type="submit" className="btn btn-default">post</button>
         </div>
       </form>
       )

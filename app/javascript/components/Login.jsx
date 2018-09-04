@@ -9,7 +9,7 @@ export default class Login extends Component{
       login: false
     }
 
-  handleInput = (e)=>{
+  handleInput = (e) =>{
     let state = this.state
     state[e.target.name] = e.target.value
     this.setState(state)
