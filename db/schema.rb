@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(version: 2018_09_03_084306) do
     t.string "name"
     t.string "nickname"
     t.string "email"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.bigint "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.json "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
