@@ -32,6 +32,7 @@ export default class Home extends Component{
 
   render(){
     const { posts } = this.state
+    console.log(posts)
     return(
       <div className="container-fluid">
         <div className="row justify-content-center">

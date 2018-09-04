@@ -32,8 +32,13 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-#for video transcoder
+
+
+#for api serializer with model
+gem 'active_model_serializers', '~> 0.10.0'
+#for file upload handling
 gem 'paperclip'
+#for video transcoder or for converting all .ext to .flv
 gem 'paperclip-av-transcoder' 
 #cross-origin request filter  
 gem 'rack-cors', :require => 'rack/cors'
