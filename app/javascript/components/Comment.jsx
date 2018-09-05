@@ -51,7 +51,7 @@ export default class Comment extends Component{
       self.setState({message: ''})
     })
     .catch(function (err){
-      cosole.loc(err)
+      console.log(err)
     });
   }
 
@@ -66,7 +66,7 @@ export default class Comment extends Component{
               comments.map(function(comment, index){
                 return(
                     <li key={index}>
-                      { comment.user.name } { comment.message }
+                      <b>{ comment.user.name }</b> { comment.message }
                     </li>
                   )
               })

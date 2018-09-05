@@ -64,7 +64,7 @@ export default class Post extends Component{
               </div>
             </div>
             <div className="card-footer">
-              { post.status } 
+              <b>{ post.user.name }</b> { post.status } 
               <Comment post_id={post.id}/>
             </div>
           </div>
