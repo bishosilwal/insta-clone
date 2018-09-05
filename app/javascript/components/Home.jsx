@@ -42,7 +42,7 @@ export default class Home extends Component{
           </div>
           <div className="col-4">
           </div>
-          <div className="col-7">
+          <div className="col-6">
             {
               posts.map(function(post,index){
                 return(<Post value={post} key={index}/>)
