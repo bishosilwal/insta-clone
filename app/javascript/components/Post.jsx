@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Comment from './Comment.jsx'
+import Like from './Like.jsx'
 
 
 const HOST = 'http://localhost:3000/'
@@ -64,6 +65,7 @@ export default class Post extends Component{
               </div>
             </div>
             <div className="card-footer">
+              <Like post_id={ post.id } />
               <b>{ post.user.name }</b> { post.status } 
               <Comment post_id={post.id}/>
             </div>

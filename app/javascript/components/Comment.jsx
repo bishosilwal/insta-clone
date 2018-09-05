@@ -7,14 +7,10 @@ const HEADERS =  JSON.parse(window.localStorage.getItem('headers'))
 export default class Comment extends Component{
 
   state={
-    post_id: '',
+    post_id: this.props.post_id,
     comments: [],
     message: ''
   } 
-
-  componentWillMount(){
-    this.setState({post_id: this.props.post_id})
-  }
 
   componentDidMount(){
     var self = this

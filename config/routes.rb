@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   root 'home#index'
 
   namespace :api do
-    namespace :v1 do 
-      resources :posts , only: [:create, :index] do 
+    namespace :v1 do
+      resources :posts, only: [:create, :index] do
         resources :comments, only: [:index, :create]
-        resources :likes, only: [:create]
+        resources :likes, only: [:index, :create, :destroy]
       end
     end
   end
