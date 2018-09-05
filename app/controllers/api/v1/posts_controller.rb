@@ -21,7 +21,11 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def attachment_params
-    params.permit(attachment: [])[:attachment].reject{|a| a.class !=ActionDispatch::Http::UploadedFile } || []
+    if params[:attachment].nil?
+      []
+    else
+      params.permit(attachment: [])[:attachment].reject{|a| a.class !=ActionDispatch::Http::UploadedFile }
+    end  
   end
 
 end

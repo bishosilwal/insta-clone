@@ -22,8 +22,6 @@ export default class PostForm extends Component{
   handleSubmit = (e) =>{
     e.preventDefault()
     let state = this.state
-    // HEADERS['content-type'] = 'multipart/form-data'
-    console.log(HEADERS)
     let formData = new FormData()
     formData.append('status', state.status)
     for(var file in state.attachment){
@@ -39,7 +37,8 @@ export default class PostForm extends Component{
       },
       contentType: "multipart/form-data"
     }).then(function (response){
-      console.log(response)
+      self.setState({status: '', attachment: []})
+      self.refs['file-input'].value = ''
       self.props.fetchData()
 
     })
@@ -49,15 +48,16 @@ export default class PostForm extends Component{
   }
 
   render(){
+    var state = this.state
     return(
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label htmlFor="exampleFormControlTextarea1">Status</label>
-          <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" name="status" onChange={this.handleInput}></textarea>
+          <textarea className="form-control" id="exampleFormControlTextarea1" value={state.status} rows="3" name="status" onChange={this.handleInput}></textarea>
         </div>
         <div className="form-group">
           <label htmlFor="exampleFormControlFile1">File:</label>
-          <input type="file" className="form-control-file" id="exampleFormControlFile1" multiple onChange={this.handleFileInput}/>
+          <input type="file" className="form-control-file" id="exampleFormControlFile1" ref="file-input"  multiple onChange={this.handleFileInput}/>
         </div>
         <div className="form-group">
           <button type="submit" className="btn btn-default">post</button>

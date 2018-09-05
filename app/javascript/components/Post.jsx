@@ -20,12 +20,7 @@ export default class Post extends Component{
       },
     });
   }
-
-  pauseVideo = (e) => {
-    console.log("video loaded")
-    console.log(e)
-  }
-
+  
   render(){
     const post = this.props.value
     return(
@@ -45,14 +40,14 @@ export default class Post extends Component{
                     post.attachments.map(function(attachment,index){
                       if(attachment.asset_content_type.search('image')==0){
                         return(
-                            <div className="swiper-slide">
+                            <div className="swiper-slide" key={index}>
                               <img className="d-block w-100" src={HOST+attachment.asset} width="400px" height="400px" key={index}/> 
                             </div>
                           )  
                       }else if(attachment.asset_content_type.search('video')==0){
 
                         return(
-                          <div className="swiper-slide">
+                          <div className="swiper-slide" key={index}>
                             <video  controls key={index} src={ HOST+attachment.asset} width="400px" height="400px" className="embed-responsive embed-responsive-16by9 embed-responsive-item" ></video>
                           </div>  
                           )
