@@ -5,7 +5,7 @@ class PostSerializer < ActiveModel::Serializer
   has_many :attachments
 
   class AttachmentSerializer < ActiveModel::Serializer
-    attributes :id, :asset
+    attributes :id, :asset, :asset_content_type
 
     def asset
       self.object.asset.url

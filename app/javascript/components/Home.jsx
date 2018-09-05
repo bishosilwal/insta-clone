@@ -45,8 +45,8 @@ export default class Home extends Component{
           </div>
           <div className="col-7">
             {
-              posts.map(function(post){
-                return(<Post value={post} />)
+              posts.map(function(post,index){
+                return(<Post value={post} key={index}/>)
               })
             }
           </div>

@@ -6,7 +6,19 @@ export default class Post extends Component{
 
 
   componentDidMount(){
-
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
   }
 
   render(){
@@ -21,11 +33,34 @@ export default class Post extends Component{
             </div>
             <div className="card-body">
               <h5 className="card-title"></h5>
-              { 
-                post.attachments.map(function(attachment){
-                  return( <img src={HOST+attachment.asset} /> )
-                })
-              }
+
+              <div className="swiper-container">
+                <div className="swiper-wrapper">
+                  { 
+                    post.attachments.map(function(attachment,index){
+                      if(attachment.asset_content_type.search('image')==0){
+                        return(
+                            <div className="swiper-slide">
+                              <img className="d-block w-100" src={HOST+attachment.asset} width="400px" height="400px" key={index}/> 
+                            </div>
+                          )  
+                      }else if(attachment.asset_content_type.search('video')==0){
+
+                        return(
+                          <div className="swiper-slide">
+                            <iframe className="embed-responsive embed-responsive-16by9 embed-responsive-item" key={index} src={ HOST+attachment.asset} width="400px" height="400px" allowFullScreen></iframe>
+                          </div>  
+                          )
+                      }
+                    })
+                  }
+                </div>
+                {/*<!-- Add Pagination -->*/}
+                <div className="swiper-pagination"></div>
+                {/*<!-- Add Arrows -->*/}
+                <div className="swiper-button-next"></div>
+                <div className="swiper-button-prev"></div>
+              </div>
             </div>
             <div className="card-footer">
               { post.status } 
