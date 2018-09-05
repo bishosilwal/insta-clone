@@ -21,6 +21,11 @@ export default class Post extends Component{
     });
   }
 
+  pauseVideo = (e) => {
+    console.log("video loaded")
+    console.log(e)
+  }
+
   render(){
     const post = this.props.value
     return(
@@ -48,7 +53,7 @@ export default class Post extends Component{
 
                         return(
                           <div className="swiper-slide">
-                            <iframe className="embed-responsive embed-responsive-16by9 embed-responsive-item" key={index} src={ HOST+attachment.asset} width="400px" height="400px" allowFullScreen></iframe>
+                            <video  controls key={index} src={ HOST+attachment.asset} width="400px" height="400px" className="embed-responsive embed-responsive-16by9 embed-responsive-item" ></video>
                           </div>  
                           )
                       }
