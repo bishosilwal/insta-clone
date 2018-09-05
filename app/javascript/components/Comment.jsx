@@ -48,7 +48,9 @@ export default class Comment extends Component{
       headers: HEADERS
     })
     .then(function (res){
-      self.setState({message: ''})
+      let comments = self.state.comments
+      comments.push(res.data)
+      self.setState({message: '', comments: comments})
     })
     .catch(function (err){
       console.log(err)

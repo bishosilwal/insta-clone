@@ -8,9 +8,9 @@ class Api::V1::CommentsController < ApplicationController
 
   def create
     post = Post.find(comment_params[:post_id])
-    post.comments.build(message: comment_params[:message], user: current_user)
-    post.save
-    render json: { status: :ok }
+    comment =  post.comments.build(message: comment_params[:message], user: current_user)
+    comment.save
+    render json: comment
   end
 
   private
