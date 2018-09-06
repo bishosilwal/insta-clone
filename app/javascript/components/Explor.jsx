@@ -23,8 +23,23 @@ export default class Explor extends Component{
     });
   }
 
+  handleFollowClick = (friend_id) => {
+    axios.post(HOST+'friend_ships',{
+      friend_id: friend_id
+    },
+    {
+      headers: HEADERS
+    }
+    )
+    .then(function (res){
+      console.log(res)
+    })
+    .catch(function(err){
+      console.log(err)
+    });
+  }
+
   render(){
-    console.log(this.state.allUser)
     const { allUser } = this.state
     return(
         <div className="container-fluid ">
@@ -34,13 +49,13 @@ export default class Explor extends Component{
             </div>
             <div className="col-10 row">
               {
-                allUser.map(function(user, index){
+                allUser.map((user, index) => {
                   return(
                       <div className="card m-2 user-suggest-card shadow" key={index}>
                         <div className="card-body">
                           <h5 className="card-title">{user.name}</h5>
                           <label> { user.email } </label><br/>  
-                          <a href="#" className="btn btn-primary btn-sm">Follow</a>
+                          <button className="btn btn-primary btn-sm" onClick={(e) => this.handleFollowClick(user.id) }>Follow</button>
                         </div>
                       </div>
                     )

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
         resources :likes, only: [:index, :create, :destroy]
       end
        get '/friends/suggestion', to: 'users#index'
+       resources :friend_requests, only: [:create]
+       resources :friend_ships, only: [:create]
     end
   end
 

@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   #friend request relation
   has_many :friend_request
-  has_many :request, through: :friend_request
+  has_many :requests, through: :friend_request
   has_many :inverse_friend_request, class_name: 'FriendRequest', foreign_key: 'request_id'
   has_many :inverse_request, through: :inverse_friend_request, source: :user
 
