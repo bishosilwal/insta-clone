@@ -13,7 +13,6 @@ export default class Logout extends Component{
     axios.delete("http://localhost:3000/api/v1/auth/sign_out",
       { headers:headers
       }).then(function (response){
-        console.log('signout response ok')
         window.localStorage.clear()
         self.setState({login: false})
       }).catch(function (errors){

@@ -25,18 +25,29 @@ export default class TopNav extends Component{
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </form>
             </ul>
-            <div className="my-auto nav-item">
-              <Link to="/explor" className="nav-link"><i className="far fa-compass" > </i> </Link>
-            </div>
-            <div className="my-auto nav-item" >
-               <Link to="/profile" className="nav-link"><i className="far fa-user"> </i> </Link>
-            </div>
-            <div className="my-auto nav-item" >
-               <label className="font-weight-light"> {DATA.name} </label>
-            </div>
-            <div className="my-2">
-              {checkAuth.isAuthenticated()? <Logout />:''}
-            </div>
+            {
+
+              checkAuth.isAuthenticated()? (
+                  <React.Fragment>
+                    <div className="my-auto nav-item">
+                      <Link to="/explor" className="nav-link"><i className="far fa-compass text-dark" > </i> </Link>
+                    </div>
+                    <div className="my-auto nav-item">
+                    <i className="far fa-heart"></i>
+                    </div>
+                    <div className="my-auto nav-item" >
+                       <Link to="/profile" className="nav-link"><i className="far fa-user text-dark"> </i> </Link>
+                    </div>
+                    <div className="my-auto nav-item" >
+                       <label className="font-weight-light"> {  DATA.name } </label>
+                    </div>
+                    <div className="my-2">
+                       <Logout />
+                    </div>
+                  </React.Fragment>  
+                ) : ''
+            }
+
           </div>  
         </div>
       </nav>

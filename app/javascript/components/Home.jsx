@@ -36,12 +36,12 @@ export default class Home extends Component{
     return(
       <div className="container-fluid">
         <div className="row justify-content-center">
-          <div className="col-4">
+          <div className="col-3">
           </div>
-          <div className="col-4">
+          <div className="col-6">
             <PostForm fetchData={this.fetchData}/>
           </div>
-          <div className="col-4">
+          <div className="col-3">
           </div>
           <div className="col-6">
             {

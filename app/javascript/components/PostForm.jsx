@@ -38,7 +38,6 @@ export default class PostForm extends Component{
       contentType: "multipart/form-data"
     }).then(function (response){
       self.setState({status: '', attachment: []})
-      self.refs['file-input'].value = ''
       self.props.fetchData()
 
     })
@@ -46,19 +45,35 @@ export default class PostForm extends Component{
        console.log(errors) 
     });
   }
+  attachmentName(){
+    const {attachment} = this.state
+    if(attachment.length>0){
+      if(attachment.length==1){
+        return ''+attachment[0].name
+      }
+      if(attachment.length>1){
+        return attachment.length+" files selected"
+      }
+    }else{
+      return 'Choose files'
+    }
+  }
 
   render(){
     var state = this.state
     return(
-      <form onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="exampleFormControlTextarea1">Status</label>
-          <textarea className="form-control" id="exampleFormControlTextarea1" value={state.status} rows="3" name="status" onChange={this.handleInput}></textarea>
-        </div>
-        <div className="form-group">
-          <label htmlFor="exampleFormControlFile1">File:</label>
-          <input type="file" className="form-control-file" id="exampleFormControlFile1" ref="file-input"  multiple onChange={this.handleFileInput}/>
-        </div>
+      <form onSubmit={this.handleSubmit} className="mt-4">
+        <div style={{border: '1px solid #ced4da'}} className="mb-2">
+          <div className="form-group m-0">
+            <textarea  placeholder="  status" className="p-0" value={state.status} rows="3" name="status" onChange={this.handleInput} style={{ width: '100%'}}></textarea>
+          </div>
+          <div className="form-group m-0">
+            <div className="custom-file">
+              <input type="file" className="custom-file-input" id="customFile"   multiple onChange={this.handleFileInput} accept="image/*,video/*"/>
+              <label className="custom-file-label" htmlFor="customFile">{ this.attachmentName()}</label>
+            </div>
+          </div>
+        </div>  
         <div className="form-group">
           <button type="submit" className="btn btn-default">post</button>
         </div>
