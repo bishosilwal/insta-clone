@@ -10,6 +10,10 @@ export default class Explor extends Component{
   }
 
   componentDidMount(){
+   this.getFriendSuggestion()
+  }
+
+  getFriendSuggestion(){
     var self = this
     axios.get(HOST+'friends/suggestion',
     {
@@ -20,10 +24,11 @@ export default class Explor extends Component{
     })
     .catch(function (err){
       console.log(err)
-    });
+    }); 
   }
 
   handleFollowClick = (friend_id) => {
+    var self = this
     axios.post(HOST+'friend_ships',{
       friend_id: friend_id
     },
@@ -32,7 +37,7 @@ export default class Explor extends Component{
     }
     )
     .then(function (res){
-      console.log(res)
+      self.getFriendSuggestion()
     })
     .catch(function(err){
       console.log(err)

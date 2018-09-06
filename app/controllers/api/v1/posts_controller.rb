@@ -2,7 +2,7 @@ class Api::V1::PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = current_user.posts.eager_load(:attachments)
+    @posts = current_user.all_post
     render json: @posts
   end
 
@@ -12,6 +12,13 @@ class Api::V1::PostsController < ApplicationController
       Attachment.create(asset: attach, post: post)
     end
     render json: {data: 'successfully uploaded', status: :ok}
+  end
+
+  def show
+    if(current_user.friends.pluck(:id).include? params[:id].to_i)
+      post = User.find(params[:id]).posts.eager_load(:attachments)
+    end
+    render json: post   
   end
 
   private

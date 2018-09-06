@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import checkAuth from '../lib/Auth.js'
 import Logout from './Logout.jsx'
 
+const DATA =  JSON.parse(window.localStorage.getItem('data'))
 export default class TopNav extends Component{
 
   render(){
@@ -29,6 +30,9 @@ export default class TopNav extends Component{
             </div>
             <div className="my-auto nav-item" >
                <Link to="/profile" className="nav-link"><i className="far fa-user"> </i> </Link>
+            </div>
+            <div className="my-auto nav-item" >
+               <label className="font-weight-light"> {DATA.name} </label>
             </div>
             <div className="my-2">
               {checkAuth.isAuthenticated()? <Logout />:''}
