@@ -9,7 +9,7 @@ Rails.application.routes.draw do
         resources :comments, only: [:index, :create]
         resources :likes, only: [:index, :create, :destroy]
       end
-       get '/friends/suggestion', to: 'friends#all_user'
+       get '/friends/suggestion', to: 'users#index'
     end
   end
 
