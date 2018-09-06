@@ -23,12 +23,13 @@ export default class TopNav extends Component{
                 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </form>
-
-              <li className="nav-item ">
-                <Link to="/profile" className="nav-link">Profile</Link>
-
-              </li>
             </ul>
+            <div className="my-auto nav-item">
+              <Link to="/explor" className="nav-link"><i className="far fa-compass" > </i> </Link>
+            </div>
+            <div className="my-auto nav-item" >
+               <Link to="/profile" className="nav-link"><i className="far fa-user"> </i> </Link>
+            </div>
             <div className="my-2">
               {checkAuth.isAuthenticated()? <Logout />:''}
             </div>

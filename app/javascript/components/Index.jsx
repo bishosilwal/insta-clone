@@ -5,6 +5,7 @@ import Home from './Home.jsx'
 import Profile from './Profile.jsx'
 import Login from './Login.jsx'
 import Signup from './Signup.jsx'
+import Explor from './Explor.jsx'
 
 export default class Index extends Component {
   render () {
@@ -15,6 +16,7 @@ export default class Index extends Component {
           <Switch>
             <PrivateRoute exact path="/" component={Home} />
             <PrivateRoute exact path="/profile" component={Profile} />
+            <PrivateRoute exact path="/explor" component={Explor} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
           </Switch> 

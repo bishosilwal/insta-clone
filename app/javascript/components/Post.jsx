@@ -65,9 +65,19 @@ export default class Post extends Component{
               </div>
             </div>
             <div className="card-footer">
-              <Like post_id={ post.id } />
-              <b>{ post.user.name }</b> { post.status } 
-              <Comment post_id={post.id}/>
+              <div className="row">
+                <div className="col-4">
+                  <div className="d-flex flex-row" >  
+                    <Like post_id={ post.id } /> <i className="far fa-comment" > </i>
+                  </div>
+                </div>  
+                <div className="col-12">
+                  <b>{ post.user.name }</b> { post.status } 
+                </div>
+                <div className="col-12">
+                  <Comment post_id={post.id}/>
+                </div> 
+              </div>   
             </div>
           </div>
         </div>
