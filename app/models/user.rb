@@ -10,5 +10,10 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :friend_ships
+  has_many :friends, through: :friend_ships
+  has_many :inverse_friend_ships, class_name: 'FriendShip', foreign_key: 'friend_id'
+  has_many :inverse_friends, through: :inverse_friend_ships, source: :user
+  
   scope :all_except, ->(user) { where.not(id: user) }
 end
