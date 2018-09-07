@@ -12,6 +12,7 @@ Rails.application.routes.draw do
        get '/friends/suggestion', to: 'users#suggestion'
        resources :friend_requests, only: [:create]
        resources :friend_ships, only: [:create]
+       resources :notifications, only: [:index]
     end
   end
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import checkAuth from '../lib/Auth.js'
 import Logout from './Logout.jsx'
+import Notification from './Notification.jsx'
 
 const DATA =  JSON.parse(window.localStorage.getItem('data'))
 export default class TopNav extends Component{
@@ -33,7 +34,7 @@ export default class TopNav extends Component{
                       <Link to="/explor" className="nav-link"><i className="far fa-compass text-dark" > </i> </Link>
                     </div>
                     <div className="my-auto nav-item">
-                    <i className="far fa-heart"></i>
+                      <Notification />  
                     </div>
                     <div className="my-auto nav-item" >
                        <Link to="/profile" className="nav-link"><i className="far fa-user text-dark"> </i> </Link>
@@ -47,7 +48,7 @@ export default class TopNav extends Component{
                   </React.Fragment>  
                 ) : ''
             }
-
+            
           </div>  
         </div>
       </nav>

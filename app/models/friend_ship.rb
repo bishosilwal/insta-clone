@@ -4,6 +4,6 @@ class FriendShip < ApplicationRecord
   after_create_commit :create_notification
 
   def create_notification
-    Notification.create(user_id: self.user_id, receiver_id: self.friend_id, message: 'followed you')
+    Notification.create(user_id: self.user_id, receiver_id: self.friend_id, message: 'followed you', status: :unread)
   end
 end

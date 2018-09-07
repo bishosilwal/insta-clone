@@ -18,3 +18,6 @@ body {
 .custom-file-label{
   border-radius: 0;
 }
+.dropdown-toggle::after{
+  content: none;
+}
