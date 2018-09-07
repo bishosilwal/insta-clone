@@ -9,10 +9,12 @@ Rails.application.routes.draw do
         resources :comments, only: [:index, :create]
         resources :likes, only: [:index, :create, :destroy]
       end
-       get '/friends/suggestion', to: 'users#suggestion'
        resources :friend_requests, only: [:create]
        resources :friend_ships, only: [:create]
        resources :notifications, only: [:index]
+       resources :users, only: [:show]
+       get '/friends/suggestion', to: 'users#suggestion'
+       post '/users/avatar', to: 'users#change_avatar'
     end
   end
 
