@@ -23,6 +23,9 @@ class User < ActiveRecord::Base
   has_many :inverse_friend_request, class_name: 'FriendRequest', foreign_key: 'request_id'
   has_many :inverse_request, through: :inverse_friend_request, source: :user
 
+  has_many :notifications, foreign_key: 'receiver_id'
+  has_many :inverse_notifications, class_name: 'Notification', foreign_key: 'user_id'
+
   def self.all_except(user)
     ids = user.friends.pluck(:id) << user.id
     where.not(id: ids)
