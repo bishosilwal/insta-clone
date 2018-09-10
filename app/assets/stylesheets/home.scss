@@ -21,3 +21,15 @@ body {
 .dropdown-toggle::after{
   content: none;
 }
+
+.nav-search-field{
+  height: 1.7rem;
+  border: solid 1px #dbdbdb;
+  border-radius: 3px;
+  color: #262626;
+  outline: 0;
+  padding: 3px 10px 3px 26px;
+  z-index: 2;
+  font-size: 16px;
+  line-height: 18px;
+}

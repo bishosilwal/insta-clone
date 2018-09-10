@@ -13,6 +13,10 @@ class PostSerializer < ActiveModel::Serializer
   end
 
   class UserSerializer < ActiveModel::Serializer
-    attributes :id, :name, :email
+    attributes :id, :name, :email, :avatar
+
+    def avatar
+      self.object.avatar.url
+    end
   end
 end

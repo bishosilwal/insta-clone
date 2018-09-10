@@ -91,7 +91,7 @@ export default class Like extends Component{
     const { likes } = this.state
     return(
       <div>
-        <i className="far fa-heart" onClick={ this.handleLike } style={{ color: this.checkLiked() ? 'red' : ''}}> </i><br/>
+        <i className="fas fa-heart" onClick={ this.handleLike } style={{ color: this.checkLiked() ? '#ed4956' : ''}}> </i><br/>
         { likes.length } likes
       </div>
       )

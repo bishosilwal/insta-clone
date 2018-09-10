@@ -34,7 +34,7 @@ export default class Home extends Component{
   render(){
     const { posts } = this.state
     return(
-      <div className="container-fluid">
+      <div className="container-fluid" style={{backgroundColor: '#fafafa'}}>
         <div className="row justify-content-center">
           <div className="col-3">
           </div>
@@ -43,7 +43,7 @@ export default class Home extends Component{
           </div>
           <div className="col-3">
           </div>
-          <div className="col-6">
+          <div className="col-5">
             {
               posts.map(function(post,index){
                 return(<Post value={post} key={index}/>)

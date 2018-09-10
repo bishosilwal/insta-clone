@@ -30,7 +30,7 @@ export default class Post extends Component{
           <div className="card">
             <div className="card-header">
               <div className="row">
-                <h4> { post.user.name } </h4>
+                <img src={post.user.avatar} height="25" width="25" style={{borderRadius: '15px'}}/>&nbsp;<h4> { post.user.name } </h4>
               </div>
             </div>
             <div className="card-body">
