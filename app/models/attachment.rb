@@ -17,4 +17,13 @@ class Attachment < ApplicationRecord
   def is_video_type?
     content_type = ['video/mp4', 'video/m4v', 'video/mpeg','video/webm']
   end
+
+  def self.get_current_user_attachments(user)
+    attachment = []
+    user.posts.each do |post|
+      attachment << post.attachments
+    end
+    attachment.flatten!
+  end
+  
 end
