@@ -26,7 +26,7 @@ export default class Post extends Component{
   render(){
     const post = this.props.value
     return(
-        <div className="container-fluid mt-5">
+        <div className="container-fluid mb-4 mt-1">
           <div className="card">
             <div className="card-header">
               <div className="row">

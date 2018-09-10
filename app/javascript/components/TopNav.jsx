@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import checkAuth from '../lib/Auth.js'
-import Logout from './Logout.jsx'
 import Notification from './Notification.jsx'
 
 const DATA =  JSON.parse(window.localStorage.getItem('data'))
@@ -19,7 +18,7 @@ export default class TopNav extends Component{
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item " style={{borderRight: '1px solid #929292'}}>
+              <li className="nav-item " style={{borderRight: '1px solid #929292', height: '50px'}}>
               </li>
               <li className="nav-item active">
                 <a className="nav-link" href="/"><img src={DOMAIN+"images/insta.png"} height="50px" width="100px" /> <span className="sr-only">(current)</span></a>
@@ -48,12 +47,7 @@ export default class TopNav extends Component{
                     <div className="my-auto nav-item" >
                        <Link to="/profile" className="nav-link"><i className="far fa-user text-dark"> </i> </Link>
                     </div>
-                    <div className="my-auto nav-item" >
-                       <label className="font-weight-light"> {  DATA.name } </label>
-                    </div>
-                    <div className="my-2">
-                       <Logout />
-                    </div>
+                    
                   </React.Fragment>  
                 ) : ''
             }

@@ -24,7 +24,7 @@ export default class Logout extends Component{
     let {login} = this.state
     if(login){
       return(
-          <button type="button" className="btn btn-default" onClick={this.handleLogout}>Logout</button>
+          <label onClick={this.handleLogout}>Logout</label>
         )
     }else{
       return(

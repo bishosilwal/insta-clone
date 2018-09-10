@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Logout from './Logout.jsx'
+
 
 const HOST = 'http://localhost:3000/api/v1/'
 const DOMAIN = 'http://localhost:3000/'
@@ -66,7 +68,6 @@ export default class Profile extends Component{
 
   render(){
     const { user, attachments } = this.state
-    console.log(attachments)
     return(
         <div className="container">
           <div className="row mt-5 mb-5 justify-content-center">
@@ -78,7 +79,7 @@ export default class Profile extends Component{
               <div className="row">
                 <h3 style={{fontWeight: '400'}}> {user.name} </h3>
                 <button type="button" className="btn edit-profile-button ml-3 mr-3">Edit Profile</button>
-                <i className="fas fa-cog"> </i>
+                <i className="fas fa-cog" data-toggle="modal" data-target="#settingModal"> </i>
               </div>
               <div className="row">
                 <label className="mr-1 font-weight-bold">{ user.posts.length} </label> posts
@@ -113,7 +114,7 @@ export default class Profile extends Component{
                           if(attachment.asset_content_type.search('image')==0){
                             return(
                               <div className="col-4 mt-4" key={index}>
-                                <img className="d-block w-100" src={DOMAIN+attachment.asset} width="100px" height="150px"/> 
+                                <img className="d-block w-100" src={DOMAIN+attachment.asset} width="100px" height="150px" /> 
                               </div>
                               )  
                           }else if(attachment.asset_content_type.search('video')==0){
@@ -130,6 +131,20 @@ export default class Profile extends Component{
                 </div>
                 <div className="tab-pane fade" id="saved" role="tabpanel" aria-labelledby="saved-tab">...</div>
                 <div className="tab-pane fade" id="tagged" role="tabpanel" aria-labelledby="tagged-tab">...</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="settingModal" tabindex="-1" role="dialog" aria-labelledby="settingModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content rounded">
+                <div class="modal-body" style={{padding: '0px', textAlign: 'center'}}>
+                  <ul class="list-group">
+                    <li class="list-group-item">Change Password</li>
+                    <li class="list-group-item" data-dismiss="modal"><Logout /></li>
+                    <li class="list-group-item" data-dismiss="modal">close</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
